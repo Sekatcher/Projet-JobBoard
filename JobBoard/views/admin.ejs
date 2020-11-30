@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/design/admin.css">
+    <script src="https://kit.fontawesome.com/c7b19e688a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/jquery/ajaxAdmin.js"></script>
+    <title>Admin</title>
+</head>
+<body>
+    <header>
+        <div id="div-menu">
+            <a href='/' class="d-flex align-items-center"><h1>Job Board</h1></a>
+            <div class="d-flex align-items-center">
+                <h5>Admin</h5>
+                <img class="fit-picture" src="/static/design/user.png">
+            </div>
+		</div>
+    </header>
+    <div class="d-flex align-items-center justify-content-center" id="div-select-table">
+        <h5>Choose a table : </h5>
+        <select class="browser-default custom-select">        
+            <option value="chose" selected>Choose a table</option>
+            <option value="advertisements">advertisements</option>
+            <option value="people">people</option>
+            <option value="companies">companies</option>
+            <option value="job_application">job_application</option>
+        </select>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <div id="div-main-table" class="div-table-design">
+            <table id="main-table" class="table-responsive table-design">
+                <thead>
+                    <tr>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <button id="btn-pre" class="button_slide slide_left" value=-10>Previous</button>
+        <button id="btn-nxt" class="button_slide slide_right" value=10>Next</button>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+        <div class="div-table-design">
+            <table id="insert-table" class="table-responsive table-design">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

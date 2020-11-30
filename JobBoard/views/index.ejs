@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/design/style.css">
+    <script src="https://kit.fontawesome.com/c7b19e688a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/jquery/ajaxGETAdvertisements.js"></script>
+    <script src="/static/jquery/ajaxGETDescription.js"></script>
+    <title>Job Board</title>
+</head>
+<body>
+<header>
+    <div id="div-menu">
+        <a href='/' class="d-flex align-items-center"><h1>Job Board</h1></a>
+        <div>
+            <%if (user) { %>
+                <button class="btn btn-outline-light" onclick="window.location.href='/logout'">Logout</button>
+                <button class="btn btn-outline-light" onclick="window.location.href='/profile'">Profile</button>
+                <%if (user.admin == 1) {%>
+                    <button class="btn btn-outline-light" onclick="window.location.href='/admin'">Database Management</button>
+                <% } %>
+            <% } else { %>
+                <button class="btn btn-outline-light" onclick="window.location.href='/login'">Login</button>
+            <% } %>
+           
+            <img class="fit-picture" src="/static/design/user.png">
+        </div>
+    </div>
+        <div id="div-item">
+            <h2 class="d-flex justify-content-center">What are you looking for ?</h2>
+            <div id="div-inputs" class="d-flex justify-content-center align-items-center">
+                <form class="flex1 form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2">
+                    <i class="fas fa-search" ></i>
+                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="What ?"
+                      aria-label="Search">
+                </form>
+                <form class="flex2 form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Where ?"
+                      aria-label="Search">
+                </form>
+                <!-- <input class="flex1">
+                <input class="flex2"> -->
+                <!-- <button id="search">Search</button> -->
+                <div id="butsearch" class="flex3">
+                    <ul>
+                        <li>
+                          search
+                          <span></span><span></span><span></span><span></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <button class="but-reset"><i class="fas fa-undo"></i></button>
+
+            </div>
+        </div>
+</header>
+<main id="div-main">
+    <div id="div-contain-advert">
+
+    </div>
+    
+</main>
+<footer>
+
+</footer>
+</body>
+</html>

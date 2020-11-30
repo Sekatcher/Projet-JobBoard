@@ -1,0 +1,33 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Register - Job Board</title>
+    <link rel="stylesheet" href="/static/design/login.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/c7b19e688a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="full-height">
+	<div id="div-login">
+		<form action="/signup" method="post" class="box">
+			<h1>Job Board - Sign In</h1>
+			<p class="text-muted"> Please enter a login and password!</p> 
+			<% if (message.length > 0) { %>
+				<div class="alert alert-danger"><%= message %></div>
+			<% } %>
+
+			<input type="text"  name="username" placeholder="Username">
+			<input type="password"  name="password" placeholder="Password">
+
+
+			<button type="submit">Signup</button>
+
+			
+			<p class="text-muted" >Already have an account? <a href="/login">Login</a></p>
+			<p class="text-muted" >Or go <a href="/">home</a>.</p>  
+		</form>
+	</div>
+</div> 
+</body>
+</html>

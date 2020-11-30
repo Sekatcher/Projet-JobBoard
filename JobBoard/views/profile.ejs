@@ -1,0 +1,86 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<% var idProfile = user.id %>
+	<title>Profil</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/design/form.css">
+    <script src="https://kit.fontawesome.com/c7b19e688a.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/static/jquery/ajaxPUTProfile.js"></script>
+
+</head>
+<body>
+	<header>
+		<div id="div-menu">
+			<a href='/' class="d-flex align-items-center"><h1>Job Board</h1></a>
+			<div>
+				<%if (user) { %>
+					<button class="btn btn-outline-light" onclick="window.location.href='/logout'">Logout</button>
+					<button class="btn btn-outline-light" onclick="window.location.href='/profile'">Profile</button>
+					<%if (user.admin == 1) {%>
+						<button class="btn btn-outline-light" onclick="window.location.href='/admin'">Database Management</button>
+					<% } %>
+				<% } else { %>
+					<button class="btn btn-outline-light" onclick="window.location.href='/login'">Login</button>
+				<% } %>
+				<img class="fit-picture" src="/static/design/user.png">
+			</div>
+		</div>
+	</header>
+
+	<div class="d-flex justify-content-center">
+		<form class="form-design">
+			<div class="page-header text-center">
+				<h1>Profile</h1>
+			</div>
+			<div class="form-group">
+				<label>Username</label><br>
+				<input type=text id="name" value="<%= user.name %>">
+			</div>
+			<div class="form-group">
+				<label>Email</label><br>
+				<input type=email id="mail" value="<%= user.mail %>">
+			</div>
+			<div class="form-group">
+				<label>Phone</label><br>
+				<input type=tel id="phone" value="<%=user.phone %>">
+			</div>
+			<input type="submit" value="Modify" class="button_slide slide_down">
+		</form>
+
+	</div>
+
+</div>
+<script>
+	$(document).submit((e) => {
+		//  affichage des annonces
+		e.preventDefault();
+
+		var id =  <%- JSON.stringify(user.id)  %>;
+		var data = {
+			"id":  id,
+			"name":  $("#name").val(),
+			"mail":  $('#mail').val(),
+			"phone":  $('#phone').val()
+		}
+
+		console.log(data)
+		$.ajax({
+			type : "PUT",
+			url : "/api/people/update",
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			success: function(result){
+				console.log(result)
+			},
+			error : function(e) {
+				console.log("ERROR: ", e);
+			}
+		});	
+	})
+</script>
+
+</body>
+</html>

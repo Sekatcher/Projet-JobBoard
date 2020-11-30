@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login - Job Board</title>
+    <link rel="stylesheet" href="/static/design/login.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/c7b19e688a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="full-height">
+		<div id="div-login">
+            <form action="/login" method="post" class="box">
+                <h1>Job Board - Login</h1>
+                <p class="text-muted"> Please enter your login and password!</p> 
+                <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                <% } %>
+                
+                <input type="text"  name="username" placeholder="Username">
+                <input type="password"  name="password" placeholder="Password">
+
+                <button type="submit">Login</button>
+
+                <p class="text-muted">Need an account? <a href="/signup">Signup</a></p>
+                <p class="text-muted">Or go <a href="/">home</a>.</p>  
+            </form>
+           
+		</div>
+	</div> 
+</body>
+</html>
